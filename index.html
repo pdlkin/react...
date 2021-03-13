@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <body style="background-color:rgb(135, 168, 240)"></body>
+    <link rel="stylesheet" href="css.css" type="text/css"/>
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+        <div id="cards" >
+        <script type="text/babel">
+            class Card extends React.Component{
+                render(){
+                    return(<div className='card'>
+                    <img src={this.props.img} alt='Text'/>
+                    <div className='card-text'>
+                        <h2>{this.props.dayTime}</h2>
+                        <h4 className='temperature'>{this.props.Degrees}</h4>  
+                        <p  className='possible precipitation'>{this.props.osadki}</p>
+                    </div>
+                </div>)
+                }
+            }
+
+            ReactDOM.render(
+                <div className="cards">
+                    <Card img="images\morning.png" dayTime='Morning' osadki='Вероятность осадков: 56%' Degrees='0°С'/>
+                    <Card img="images\day.png" dayTime='Day' osadki='Вероятность осадков: 31%' Degrees='7°С'/>
+                    <Card img="images\evening.png" dayTime='Evening' osadki='Вероятность осадков: 16%' Degrees='3°С'/>
+                    <Card img="images\night.png" dayTime='Night' osadki='Вероятность осадков: 47%' Degrees='-4°С'/>
+                </div>,
+                document.getElementById('cards')
+            )
+        </script>
+    </div>
+</body>
+</html>
